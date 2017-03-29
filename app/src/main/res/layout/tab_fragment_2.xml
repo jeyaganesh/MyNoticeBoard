@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dip"
+        android:gravity="center"
+        android:padding="30dip"
+        android:text="Suggested Topics" />
+
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <CheckedTextView
+            android:id="@+id/chk1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GATE"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:checked="true"
+            android:background="@drawable/chk_indicator"
+            android:padding="8dp"
+            />
+        <CheckedTextView
+            android:id="@+id/chk2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CAT"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:checked="true"
+            android:background="@drawable/chk_indicator"
+            android:padding="8dp"
+            />
+        <CheckedTextView
+            android:id="@+id/chk3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GRE"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:checked="true"
+            android:background="@drawable/chk_indicator"
+            android:padding="8dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <CheckedTextView
+            android:id="@+id/chk4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GMAT"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:checked="true"
+            android:background="@drawable/chk_indicator"
+            android:padding="8dp"
+            />
+        <CheckedTextView
+            android:id="@+id/chk5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TOEFEL"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:checked="true"
+            android:background="@drawable/chk_indicator"
+            android:padding="8dp"
+            />
+        <CheckedTextView
+            android:id="@+id/chk6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IBPS"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:checked="true"
+            android:background="@drawable/chk_indicator"
+            android:padding="8dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <CheckedTextView
+            android:id="@+id/chk7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IAS"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:checked="true"
+            android:background="@drawable/chk_indicator"
+            android:padding="8dp"
+            />
+        <CheckedTextView
+            android:id="@+id/chk8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IES"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:checked="true"
+            android:background="@drawable/chk_indicator"
+            android:padding="8dp"
+            />
+        <CheckedTextView
+            android:id="@+id/chk9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UGC-NET"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:checked="true"
+            android:background="@drawable/chk_indicator"
+            android:padding="8dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <CheckedTextView
+            android:id="@+id/chk10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AFCAT"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:checked="true"
+            android:background="@drawable/chk_indicator"
+            android:padding="8dp"
+            />
+        <CheckedTextView
+            android:id="@+id/chk11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SSC-CGL"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:checked="true"
+            android:background="@drawable/chk_indicator"
+            android:padding="8dp"
+            />
+        <CheckedTextView
+            android:id="@+id/chk12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CDS"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:checked="true"
+            android:background="@drawable/chk_indicator"
+            android:padding="8dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <CheckedTextView
+            android:id="@+id/chk13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UPSC-CS"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:checked="true"
+            android:background="@drawable/chk_indicator"
+            android:padding="8dp"
+            />
+        <CheckedTextView
+            android:id="@+id/chk14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NDA"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:checked="true"
+            android:background="@drawable/chk_indicator"
+            android:padding="8dp"
+            />
+        <CheckedTextView
+            android:id="@+id/chk15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OTHERS"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:checked="true"
+            android:background="@drawable/chk_indicator"
+            android:padding="8dp"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+
+
+
+
+
