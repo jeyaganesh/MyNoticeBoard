@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity
         TabLayout tabLayoutMain = (TabLayout) findViewById(R.id.tab_layout_main);
 
         //RETRIVE DATA FROM THE DATABASE
-        String[] navigationPagesMain=new String[]{"ACADEMICS","EXAMS","JOBS"};
+        String[] navigationPagesMain=new String[]{"ACADEMICS","EXAMS","JOBS","SPORTS","MUSIC","OTHERS"};
         for(String str :navigationPagesMain) {
             tabLayoutMain.addTab(tabLayoutMain.newTab().setText(str));
         }
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity
                                 }
                                 break;
                     case 2: tabLayout.removeAllTabs();
-                            String[] navigationPages3=new String[]{"Job alarts","Software Jobs","Core Jobs","Engineering","Science","Technology","Letest News","Tech Challenges"};
+                            String[] navigationPages3=new String[]{"Job alarts","Software Jobs","Core Jobs","Engineering","Science","Technology","Latest News","Tech Challenges"};
                             for(String str :navigationPages3) {
                             tabLayout.addTab(tabLayout.newTab().setText(str));
                             }
