@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity
 
     ViewPager viewPager;
     PagerAdapter adapter;
-    String[] rank;
-    String[] country;
-    String[] population;
+    String[] News;
+    String[] Author;
+    String[] Date;
             String[] navigationPages;
     int[] flag;
             TabLayout tabLayout;
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity
         TabLayout tabLayoutMain = (TabLayout) findViewById(R.id.tab_layout_main);
 
         //RETRIVE DATA FROM THE DATABASE
-        String[] navigationPagesMain=new String[]{"EDUCATION","EXAMS","OTHERS"};
+        String[] navigationPagesMain=new String[]{"ACADEMICS","EXAMS","JOBS"};
         for(String str :navigationPagesMain) {
             tabLayoutMain.addTab(tabLayoutMain.newTab().setText(str));
         }
@@ -133,25 +133,26 @@ public class MainActivity extends AppCompatActivity
         //SHOW ONTY FOR 1ST DATA(ie ELECTRICAL)
 
         // Generate sample data
-        rank = new String[] { "The US President Donald Trump on Tuesday signed an order to roll back Barack Obama-era climate change regulations, questioning US' support for an international deal to fight global warming. The regulations required US states to slash carbon emissions from power plants. \"I'm taking historic steps for American energy to reverse government intrusion and cancel job-killing regulations,\" said Trump.", "Mumbai Police will reportedly close the probe into the molestation case against The Viral Fever CEO Arunabh Kumar by this week without filing an FIR. While advocate Rizwan Siddhiqui urged the police thrice to file an FIR in the case, Mumbai Police claimed that they can do so only if any victim comes forward personally and not on social media.", "Samajwadi Party President Akhilesh Yadav on Tuesday said that the Rashtriya Swayamsevak Sangh (RSS) is trying to implement its \"fundamentalist agenda through the BJP governments, which could put the secular character of the country at risk\". \"BJP has no plan for the development of Uttar Pradesh...a new form of corrupt politics has come before us,\" he added.", "TLabs, India's leading startup accelerator has opened applications for its 12th batch, Fall'17 Consumer Batch Program. A maximum of 10 teams will be selected for the program and will receive a funding of ₹30 lakh each for 8% equity. The 16-week long Fall'17 program will focus exclusively on B2C startups.", "Minister of State for Home Hansraj G Ahir on Tuesday said the representation of women police personnel is 7.1% at all India level as of January 1, 2016. All the state governments have been requested to create additional posts for women constables and sub-inspectors by converting the vacant posts of men constables into the posts for women constables, he added.", "The Nashik Police has booked a woman journalist who had allegedly conducted a sting operation over the abuse of the Army's 'Sahayak' system. The journalist had filmed a jawan, Roy Matthew, who had allegedly committed suicide earlier. The journalist from Delhi was booked for abetting suicide, criminal trespassing, and defamation, among others after a complaint was made by Army officials.", "Pellet guns \"maybe\" used by the security forces in Kashmir valley to disperse the rioters if the alternatives fail, the government said on Tuesday. MoS for Home Affairs Hansraj G Ahir added that the possible alternatives to pellet guns include PAVA-chilli (shells and grenades), stun lac (shells and grenades) and tear smoke shells.", "The total valuation of immovable enemy property in the country stands at ₹1.04 lakh crore, the MoS for Home Affairs Hansraj G Ahir informed the Lok Sabha on Tuesday. The statement comes after the Parliament recently amended the Enemy Property Act to guard against claims of succession or transfer of properties left by people who migrated to Pakistan and China.", "The Central Bureau of Investigation (CBI) has filed a supplementary chargesheet against three accused in connection with the Vyapam scam. It was alleged that the accused persons entered into a criminal conspiracy with each other for cheating, forgery, and impersonation in Forest Guard Exam 2013. The accused have been identified as the solver, the middleman, and the candidate.", "A former IIT-Kanpur professor, Sanjeev Dayal, and his wife were rescued on Monday from their apartment, where the duo had locked themselves up for nearly four months. Both of them were found unconscious with excreta littered all over the apartment. The couple had reportedly blocked the toilet door by nailing heavy wooden planks across it." };
+        News = new String[] {"Bigdata!! Bigdata!! Bigdata!! Ever wondered what exactly Big data is?? Big data is a term that describes the large volume of data both structured and unstructured that inundates a business on a day-to-day basis. Organizations collect data from a variety of sources, including business transactions, social media and information from sensor or machine-to-machine data.","Cloud computing is the on-demand delivery of compute power, database storage, applications, and other IT resources through a cloud services platform via the internet with pay-as-you-go pricing.Whether you are running applications that share photos to millions of mobile users or youre supporting the critical operations of your business, a cloud services platform provides rapid access to flexible and low cost IT resources.","With an increase in the breadth of open-source technologies being released by Google, the company is now clubbing all of them under one roof through the release of a dedicated website.Thus, the projects are now being brought together with the release of this directory, which will be the primary hub for all open-source releases.","Sony has reportedly created a portable projector that transforms your wall or table into an interactive touch screen. Touch doesn’t just show images, it responds to you and your touch.Xperia Touch combines infrared light array with 60fps camera capture to turn a flat surface in your home into a 23-inch touchscreen. Xperia Touch automatically turns on when it senses your approach.","Ever wondered how many have qualified in GATE 2017. It is just 16%. Out of 9,22,167 candidates who applied for the exam nearly 7,87,148 attended the exam and just 16% or 1,29,149 have qualified, including general, OBC, SC, ST, or people with disabilities. The qualifying marks are also not high, it is just 25 marks. GATE is conducted by the Indian Institute of Science (IISc) and seven IITs on behalf of the National Coordination Board – GATE, Department of Higher Education, HRD ministry. It tests the comprehensive understanding of engineering and science students of various undergraduate subjects.","The school’s announcement on March 8th that it will begin to accept the Graduate Record Examination (GRE) over the Law School Admission Test (LSAT) from applicants starting this autumn appears to be a bet that Chinese engineers and Indian scientists can help reverse a double-digit decline in applications. ","Mindtree Off Campus Recruitment Drive 2017 | Freshers | Junior Engineer | 2017 Batch | BE/ B.Tech | Across India | April 2017\n" +
+                "Mindtree Limited is a global information technology solutions company with revenues of over USD 400 million. Our 11,000 experts engineer meaningful technology solutions to help businesses and societies flourish. Mindtree’s consulting-driven approach makes us a strategic partner to over 40 Fortune 500 enterprises.","Syntel Off Campus Registration Drive 2017 | Syntellect 2017 | Freshers | 2017 Batch | Diploma/ BE/ B.Tech/ B.Sc/ BCS/ BCA/ MCA/ M.Sc/ B.Com/ MA | Across India Syntel Limited is a leading global provider of integrated information technology and Knowledge Process Outsourcing (KPO) solutions spanning the entire lifecycle of business and information systems and processes.","Shell Recruitment 2017 | Freshers | Software Engineer | 2017 Batch | BE/ B.Tech | Bangalore | March 2017 Shell, is an Anglo-Dutch multinational oil and gas company headquartered in the Netherlands and incorporated in the United Kingdom. It is one of the six oil and gas “supermajors” and the fifth-largest company in the world measured by 2015/16 revenues (and the largest based in Europe).","."};
 
-        country = new String[] { "China", "India", "United States",
-                "Indonesia", "Brazil", "Pakistan", "Nigeria", "Bangladesh",
-                "Russia", "Japan" };
+        Author= new String[] { "Deepak", "Sumit", "Anurag",
+                "Prasad", "Michael", "Summanth", "Kishor", "Jey",
+                "Dev","Ashok"};
 
-        population = new String[] { "1,354,040,000", "1,210,193,422",
-                "315,761,000", "237,641,326", "193,946,886", "182,912,000",
-                "170,901,000", "152,518,015", "143,369,806", "127,360,000" };
+        Date= new String[] { "30/03/2017", "30/03/2017",
+                "30/03/2017", "30/03/2017", "30/03/2017", "30/03/2017",
+                "30/03/2017", "30/03/2017", "30/03/2017" ,"04/01/2017"};
 
-        flag = new int[] { R.drawable.trump, R.drawable.hall,
-                R.drawable.man, R.drawable.tlab,
-                R.drawable.lady, R.drawable.per, R.drawable.army,
-                R.drawable.lea, R.drawable.rid, R.drawable.last };
+        flag = new int[] { R.drawable.image1, R.drawable.image2,
+                R.drawable.image3, R.drawable.image4,
+                R.drawable.image5, R.drawable.image9, R.drawable.image8,
+                R.drawable.image6, R.drawable.image7,R.drawable.ee};
 
         // Locate the ViewPager in viewpager_main.xml
         viewPager = (ViewPager) findViewById(R.id.pager);
         // Pass results to ViewPagerAdapter Class
-        adapter = new ViewPagerAdapter(MainActivity.this, rank, country, population, flag);
+        adapter = new ViewPagerAdapter(MainActivity.this,News, Author, Date, flag);
         // Binds the Adapter to the ViewPager
         viewPager.setAdapter(adapter);
 
@@ -235,6 +236,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
+            Intent ee = new Intent(MainActivity.this,Main4Activity.class);
+            startActivity(ee);
 
         } else if (id == R.id.nav_manage) {
 

@@ -4,27 +4,27 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:icon="@drawable/cards"
+            android:title="Mycard" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:title="Collections" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="Cardshow" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="Settings" />
         <item
         android:id="@+id/show_event"
-        android:icon="@drawable/ic_menu_manage"
-        android:title="Show Events" />
+        android:icon="@drawable/rename"
+        android:title="Events" />
         <item
             android:id="@+id/preferences"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/pre"
             android:title="Preferences" />
     </group>
 
@@ -37,7 +37,7 @@
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Send my card" />
         </menu>
     </item>
 
