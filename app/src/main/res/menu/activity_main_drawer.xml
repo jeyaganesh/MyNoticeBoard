@@ -22,6 +22,10 @@
         android:id="@+id/show_event"
         android:icon="@drawable/ic_menu_manage"
         android:title="Show Events" />
+        <item
+            android:id="@+id/preferences"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Preferences" />
     </group>
 
     <item android:title="Communicate">

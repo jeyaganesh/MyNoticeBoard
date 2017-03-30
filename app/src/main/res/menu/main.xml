@@ -2,8 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_preferences"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:title="Preference"
+         />
+    <item
+        android:id="@+id/action_education"
+        android:orderInCategory="100"
+        android:title="Education"
+         />
+    <item
+        android:id="@+id/action_exams"
+        android:orderInCategory="100"
+        android:title="Exams"
+        />
+    <item
+        android:id="@+id/action_others"
+        android:orderInCategory="100"
+        android:title="Others"
+         />
 </menu>

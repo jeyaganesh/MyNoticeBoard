@@ -19,6 +19,8 @@ import android.app.Activity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import java.util.Arrays;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity
     String[] population;
             String[] navigationPages;
     int[] flag;
-
+            TabLayout tabLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +43,8 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(this);
+      //  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+       // fab.setOnClickListener(this);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -53,14 +55,80 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        TabLayout tabLayoutMain = (TabLayout) findViewById(R.id.tab_layout_main);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         //RETRIVE DATA FROM THE DATABASE
-        navigationPages=new String[]{"Electrical","Computer","GRE","GATE","Banking Exams","MBA","CAT","Medical","Health Care"};
+        String[] navigationPagesMain=new String[]{"EDUCATION","EXAMS","OTHERS"};
+        for(String str :navigationPagesMain) {
+            tabLayoutMain.addTab(tabLayoutMain.newTab().setText(str));
+        }
+        tabLayoutMain.setTabGravity(TabLayout.MODE_SCROLLABLE);
+
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+
+        //RETRIVE DATA FROM THE DATABASE
+       navigationPages=new String[]{"Electrical","Computer","GRE","GATE","Banking Exams","MBA","CAT","Medical","Health Care"};
         for(String str :navigationPages) {
             tabLayout.addTab(tabLayout.newTab().setText(str));
         }
         tabLayout.setTabGravity(TabLayout.MODE_SCROLLABLE);
+
+        tabLayoutMain.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                //viewPager.setCurrentItem(tab.getPosition());
+                switch(tab.getPosition()){
+                    case 0:tabLayout.removeAllTabs();
+                            String[] navigationPages1=new String[]{"Electrical","Computer","Mechanical","Civil","Information technology"};
+
+                            for(String str :navigationPages1) {
+                                    tabLayout.addTab(tabLayout.newTab().setText(str));
+                                }
+                            break;
+                    case 1:tabLayout.removeAllTabs();
+                            String[] navigationPages2=new String[]{"GRE","GATE","Banking Exams","CAT","CDS","SSC","Railway"};
+                              for(String str :navigationPages2) {
+                                tabLayout.addTab(tabLayout.newTab().setText(str));
+                                }
+                                break;
+                    case 2: tabLayout.removeAllTabs();
+                            String[] navigationPages3=new String[]{"Job alarts","Software Jobs","Core Jobs","Engineering","Science","Technology","Letest News","Tech Challenges"};
+                            for(String str :navigationPages3) {
+                            tabLayout.addTab(tabLayout.newTab().setText(str));
+                            }
+                            break;
+
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                String option=tab.getText().toString();
+                //go to database retrive the cards base on the data populate the fileld
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
         //SHOW ONTY FOR 1ST DATA(ie ELECTRICAL)
 
@@ -92,9 +160,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onClick(View view) {
 
-        Intent i = new Intent(MainActivity.this,Main2Activity.class);
 
-        startActivity(i);
 
     }
     @Override
@@ -122,7 +188,36 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_preferences) {
+            Intent i = new Intent(MainActivity.this,Main2Activity.class);
+
+            startActivity(i);
+
+            return true;
+        }
+        if (id == R.id.action_education) {
+            tabLayout.removeAllTabs();
+            String[] navigationPages1=new String[]{"Electrical","Computer","Mechanical","Civil","Information technology"};
+
+            for(String str :navigationPages1) {
+                tabLayout.addTab(tabLayout.newTab().setText(str));
+            }
+            return true;
+        }
+        if (id == R.id.action_exams) {
+            tabLayout.removeAllTabs();
+            String[] navigationPages2=new String[]{"GRE","GATE","Banking Exams","CAT","CDS","SSC","Railway"};
+            for(String str :navigationPages2) {
+                tabLayout.addTab(tabLayout.newTab().setText(str));
+            }
+            return true;
+        }
+        if (id == R.id.action_others) {
+            tabLayout.removeAllTabs();
+            String[] navigationPages3=new String[]{"Job alarts","Software Jobs","Core Jobs","Engineering","Science","Technology","Letest News","Tech Challenges"};
+            for(String str :navigationPages3) {
+                tabLayout.addTab(tabLayout.newTab().setText(str));
+            }
             return true;
         }
 
@@ -152,6 +247,11 @@ public class MainActivity extends AppCompatActivity
             Intent se = new Intent(MainActivity.this,Main3Activity.class);
 
             startActivity(se);
+        }
+        else if (id == R.id.preferences) {
+            Intent i = new Intent(MainActivity.this,Main2Activity.class);
+
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

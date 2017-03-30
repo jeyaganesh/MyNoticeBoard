@@ -13,41 +13,32 @@ import android.view.ViewGroup;
 import android.widget.CheckedTextView;
 
 public class TabFragment2 extends Fragment implements View.OnClickListener{
-
+    CheckedTextView checkb[]=new CheckedTextView[15];
+    View v;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.tab_fragment_2, container, false);
-        CheckedTextView checkb1 = (CheckedTextView) v.findViewById(R.id.chk1);
-        CheckedTextView checkb2 = (CheckedTextView) v.findViewById(R.id.chk2);
-        CheckedTextView checkb3 = (CheckedTextView) v.findViewById(R.id.chk3);
-        CheckedTextView checkb4 = (CheckedTextView) v.findViewById(R.id.chk4);
-        CheckedTextView checkb5 = (CheckedTextView) v.findViewById(R.id.chk5);
-        CheckedTextView checkb6 = (CheckedTextView) v.findViewById(R.id.chk6);
-        CheckedTextView checkb7 = (CheckedTextView) v.findViewById(R.id.chk7);
-        CheckedTextView checkb8 = (CheckedTextView) v.findViewById(R.id.chk8);
-        CheckedTextView checkb9 = (CheckedTextView) v.findViewById(R.id.chk9);
-        CheckedTextView checkb10 = (CheckedTextView) v.findViewById(R.id.chk10);
-        CheckedTextView checkb11 = (CheckedTextView) v.findViewById(R.id.chk11);
-        CheckedTextView checkb12 = (CheckedTextView) v.findViewById(R.id.chk12);
-        CheckedTextView checkb13 = (CheckedTextView) v.findViewById(R.id.chk13);
-        CheckedTextView checkb14 = (CheckedTextView) v.findViewById(R.id.chk14);
-        CheckedTextView checkb15 = (CheckedTextView) v.findViewById(R.id.chk15);
+        checkb[0] = (CheckedTextView) v.findViewById(R.id.chk1);
+        checkb[1] = (CheckedTextView) v.findViewById(R.id.chk2);
+        checkb[2] = (CheckedTextView) v.findViewById(R.id.chk3);
+        checkb[3] = (CheckedTextView) v.findViewById(R.id.chk4);
+        checkb[4] = (CheckedTextView) v.findViewById(R.id.chk5);
+        checkb[5] = (CheckedTextView) v.findViewById(R.id.chk6);
+        checkb[6] = (CheckedTextView) v.findViewById(R.id.chk7);
+        checkb[7] = (CheckedTextView) v.findViewById(R.id.chk8);
+        checkb[8] = (CheckedTextView) v.findViewById(R.id.chk9);
+        checkb[9] = (CheckedTextView) v.findViewById(R.id.chk10);
+        checkb[10] = (CheckedTextView) v.findViewById(R.id.chk11);
+        checkb[11] = (CheckedTextView) v.findViewById(R.id.chk12);
+        checkb[12] = (CheckedTextView) v.findViewById(R.id.chk13);
+        checkb[13] = (CheckedTextView) v.findViewById(R.id.chk14);
+        checkb[14]= (CheckedTextView) v.findViewById(R.id.chk15);
 
-        checkb1.setOnClickListener(this);
-        checkb2.setOnClickListener(this);
-        checkb3.setOnClickListener(this);
-        checkb4.setOnClickListener(this);
-        checkb5.setOnClickListener(this);
-        checkb6.setOnClickListener(this);
-        checkb7.setOnClickListener(this);
-        checkb8.setOnClickListener(this);
-        checkb9.setOnClickListener(this);
-        checkb10.setOnClickListener(this);
-        checkb11.setOnClickListener(this);
-        checkb12.setOnClickListener(this);
-        checkb13.setOnClickListener(this);
-        checkb14.setOnClickListener(this);
-        checkb15.setOnClickListener(this);
+
+        for(int i=0;i<checkb.length;i++)
+        {
+            checkb[i].setOnClickListener(this);
+        }
         return v;
     }
     @Override
@@ -64,5 +55,46 @@ public class TabFragment2 extends Fragment implements View.OnClickListener{
             ctv.setChecked(true);
             Snackbar.make(ctv, "UnSelected", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();}
-    }}
+    }
 
+    @Override
+    public void onStart ()
+    {
+        super.onStart();
+
+
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        for(int i=0;i<15;i++){
+            outState.putBoolean(Integer.toString(i), checkb[i].isChecked());
+        }
+
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if (savedInstanceState != null) {
+            // Restore last state for checked position.
+            boolean b[]=new boolean[15];
+            for(int i=0;i<15;i++){
+                b[i] = savedInstanceState.getBoolean(String.valueOf(i));
+                if(b[i]){
+                    checkb[i].setChecked(true);
+                }
+                else{
+                    checkb[i].setChecked(false);
+                }
+            }
+
+        }
+    }
+    public void onPause ()
+    {
+        super.onPause();
+
+
+    }
+}

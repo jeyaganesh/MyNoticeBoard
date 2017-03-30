@@ -1,8 +1,10 @@
 package com.example.deepak.mynoticeboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,21 +19,27 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main3Activity extends AppCompatActivity {
+public class Main3Activity extends AppCompatActivity implements View.OnClickListener{
 
     public static final String[] titles = new String[] { "Strawberry",
+            "Banana", "Orange", "Mixed","Strawberry",
             "Banana", "Orange", "Mixed" };
 
     public static final String[] descriptions = new String[] {
             "It is an aggregate accessory fruit",
             "It is the largest herbaceous flowering plant", "Citrus Fruit",
+            "Mixed Fruits" ,"It is an aggregate accessory fruit",
+            "It is the largest herbaceous flowering plant", "Citrus Fruit",
             "Mixed Fruits" };
 
     public static final Integer[] images = { R.drawable.india,
-            R.drawable.china, R.drawable.indonesia, R.drawable.bangladesh };
+            R.drawable.china, R.drawable.indonesia, R.drawable.bangladesh,R.drawable.india,
+            R.drawable.china, R.drawable.indonesia, R.drawable.bangladesh};
 
     ListView listView;
     List<RowItem> rowItems;
+    TabLayout tabLayout;
+    String[] navigationPages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +49,84 @@ public class Main3Activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener(this);
+
+
+
+        TabLayout tabLayoutMain = (TabLayout) findViewById(R.id.tab_layout_main);
+
+        //RETRIVE DATA FROM THE DATABASE
+        String[] navigationPagesMain=new String[]{"EDUCATION","EXAMS","OTHERS"};
+        for(String str :navigationPagesMain) {
+            tabLayoutMain.addTab(tabLayoutMain.newTab().setText(str));
+        }
+        tabLayoutMain.setTabGravity(TabLayout.MODE_SCROLLABLE);
+
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+
+        //RETRIVE DATA FROM THE DATABASE
+        navigationPages=new String[]{"Electrical","Computer","GRE","GATE","Banking Exams","MBA","CAT","Medical","Health Care"};
+        for(String str :navigationPages) {
+            tabLayout.addTab(tabLayout.newTab().setText(str));
+        }
+        tabLayout.setTabGravity(TabLayout.MODE_SCROLLABLE);
+
+        tabLayoutMain.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onTabSelected(TabLayout.Tab tab) {
+                //viewPager.setCurrentItem(tab.getPosition());
+                switch(tab.getPosition()){
+                    case 0:tabLayout.removeAllTabs();
+                        String[] navigationPages1=new String[]{"Electrical","Computer","Mechanical","Civil","Information technology"};
+
+                        for(String str :navigationPages1) {
+                            tabLayout.addTab(tabLayout.newTab().setText(str));
+                        }
+                        break;
+                    case 1:tabLayout.removeAllTabs();
+                        String[] navigationPages2=new String[]{"GRE","GATE","Banking Exams","CAT","CDS","SSC","Railway"};
+                        for(String str :navigationPages2) {
+                            tabLayout.addTab(tabLayout.newTab().setText(str));
+                        }
+                        break;
+                    case 2: tabLayout.removeAllTabs();
+                        String[] navigationPages3=new String[]{"Job alarts","Software Jobs","Core Jobs","Engineering","Science","Technology","Letest News","Tech Challenges"};
+                        for(String str :navigationPages3) {
+                            tabLayout.addTab(tabLayout.newTab().setText(str));
+                        }
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
             }
         });
 
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                String option=tab.getText().toString();
+                //go to database retrive the cards base on the data populate the fileld
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
 
 
@@ -66,7 +144,15 @@ public class Main3Activity extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onClick(View view) {
 
+        //UPDATE DATABASE BY TAKING THE NEW CHOICES
+        Intent i = new Intent(Main3Activity.this,MainActivity.class);
+
+        startActivity(i);
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -83,7 +169,7 @@ public class Main3Activity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_preferences) {
             return true;
         }
 

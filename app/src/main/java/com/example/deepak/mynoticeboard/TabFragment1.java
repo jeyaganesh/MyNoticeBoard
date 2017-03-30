@@ -69,7 +69,10 @@ public class TabFragment1 extends Fragment implements View.OnClickListener{
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean("someVarA", checkb[14].isChecked());
+        for(int i=0;i<15;i++){
+            outState.putBoolean(Integer.toString(i), checkb[i].isChecked());
+        }
+
     }
 
     @Override
@@ -77,13 +80,17 @@ public class TabFragment1 extends Fragment implements View.OnClickListener{
         super.onActivityCreated(savedInstanceState);
         if (savedInstanceState != null) {
             // Restore last state for checked position.
-           boolean b = savedInstanceState.getBoolean("someVarA");
-            if(b){
-                checkb[14].setChecked(true);
+            boolean b[]=new boolean[15];
+            for(int i=0;i<15;i++){
+                b[i] = savedInstanceState.getBoolean(String.valueOf(i));
+                if(b[i]){
+                    checkb[i].setChecked(true);
+                }
+                else{
+                    checkb[i].setChecked(false);
+                }
             }
-            else{
-                checkb[14].setChecked(false);
-            }
+
         }
     }
     public void onPause ()

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -20,12 +21,13 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
         fab.setOnClickListener(this);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Education"));
-        tabLayout.addTab(tabLayout.newTab().setText("Exams"));
-        tabLayout.addTab(tabLayout.newTab().setText("Specialization"));
+        tabLayout.addTab(tabLayout.newTab().setText("EDUCATION"));
+        tabLayout.addTab(tabLayout.newTab().setText("EXAMS"));
+        tabLayout.addTab(tabLayout.newTab().setText("OTHERS"));
         tabLayout.setTabGravity(TabLayout.MODE_SCROLLABLE);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
