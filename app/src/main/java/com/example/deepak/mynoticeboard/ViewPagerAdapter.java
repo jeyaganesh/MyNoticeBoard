@@ -58,7 +58,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
         // Locate the TextViews in viewpager_item.xml
         txtrank = (TextView) itemView.findViewById(R.id.rank);
-       txtcountry = (TextView) itemView.findViewById(R.id.country);
+        txtcountry = (TextView) itemView.findViewById(R.id.country);
         txtpopulation = (TextView) itemView.findViewById(R.id.population);
 
         // Capture position and set to the TextViews

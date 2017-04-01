@@ -23,7 +23,7 @@ public class ImageAdapter extends PagerAdapter {
 
     public ImageAdapter(Context context, int[] flag) {
         this.context = context;
-     ;
+        ;
         this.flag = flag;
     }
 
@@ -48,10 +48,6 @@ public class ImageAdapter extends PagerAdapter {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = inflater.inflate(R.layout.viewpager_image, container,
                 false);
-
-
-
-
 
 
         // Locate the ImageView in viewpager_item.xml

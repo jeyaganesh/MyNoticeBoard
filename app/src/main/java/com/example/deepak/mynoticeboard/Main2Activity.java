@@ -11,7 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class Main2Activity extends AppCompatActivity implements View.OnClickListener{
+public class Main2Activity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +52,12 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
             }
         });
     }
+
     @Override
     public void onClick(View view) {
 
         //UPDATE DATABASE BY TAKING THE NEW CHOICES
-        Intent i = new Intent(Main2Activity.this,MainActivity.class);
+        Intent i = new Intent(Main2Activity.this, MainActivity.class);
 
         startActivity(i);
 
